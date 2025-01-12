@@ -16,6 +16,9 @@ public class GlobalDataStore : MonoBehaviour
     [Header("Managers")]
     public GameObject manager;
 
+    [Header("Player Modules")]
+    public StatModule statModule;
+
     
 
     private void Awake()
