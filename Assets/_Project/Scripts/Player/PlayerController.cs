@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 // using Cinemachine;
 
@@ -10,6 +11,9 @@ public class PlayerController : MonoBehaviour
     public float rotateSpeed = 10;
     private float rotateDifference;
     private float rotateDirection;
+
+
+    [Header("Animation")]
     public Animator animator;
     public float dampTime;
     [SerializeField] private float smoothTime = 0.05f;
@@ -20,8 +24,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 cameraRelativeMovement = new Vector3(0, 0, 0);
     public float MovementForce = 10;
     private Vector2 _input = new Vector2(0, 0);
-    // public CinemachineVirtual vcam;
     private Vector3 _currentMovement = new Vector3(0, 0, 0);
+
+
+    [Header("Dash")]
+    public float dashForce = 10;
+    public bool isDashing = false;
+    public float dashCooldown = 1f;
+    public float dashDuration = 0.5f;
     
 
 
@@ -56,7 +66,17 @@ public class PlayerController : MonoBehaviour
     {
         HandleCameraRelativeMovement();
         HandleMovement();
-        rb.AddForce(MovementForce * Time.deltaTime * cameraRelativeMovement);
+
+        // split the movement into two parts - the forward movement and the right movement
+        // this is so we can add more force to the y axis
+
+        // X movement
+        Vector3 xMovement = new Vector3(cameraRelativeMovement.x, 0, 0);
+        rb.AddForce(MovementForce * Time.deltaTime * xMovement);
+
+        // Z movement
+        Vector3 zMovement = new Vector3(0, 0, cameraRelativeMovement.z);
+        rb.AddForce(MovementForce * Time.deltaTime * zMovement);
     }
 
 
@@ -73,9 +93,6 @@ public class PlayerController : MonoBehaviour
 
         Vector3 forwardRelativeInput = _input.y * forward;
         Vector3 rightRelativeInput = _input.x * right;
-
-        Debug.Log("Forward: " + forwardRelativeInput);
-        Debug.Log("Right: " + rightRelativeInput);
 
 
         cameraRelativeMovement = forwardRelativeInput + rightRelativeInput;
@@ -97,29 +114,64 @@ public class PlayerController : MonoBehaviour
 
 
 
+    // DASH HANDLING -----------------------------------------------------
+    public void Dash()
+    {
+        // we don't want to dash if we're not moving in a direction
+        if (cameraRelativeMovement.magnitude == 0) return;
+
+        // we don't want to dash if we're already dashing
+        if (isDashing) return;
+
+        StartCoroutine(PerformDash());
+    }
+
+    public IEnumerator PerformDash()
+    {
+        // show in the UI that the skill was used
+        GlobalDataStore.instance.dashUI.UseSkill();
+
+        isDashing = true;
+
+        // stop all momentum
+        rb.velocity = Vector3.zero;
+
+        // screen shake
+        ScreenshakeManager.instance.ShakeCamera(ScreenshakeManager.instance.DashProfile);
+
+        // apply the dash force
+        rb.velocity = cameraRelativeMovement * dashForce;
+
+        // wait for the dash duration - decrease for a shorter dash
+        yield return new WaitForSeconds(dashDuration);
+
+        // stop the dash
+        rb.velocity = Vector3.zero;
+
+        // do cooldown stuff here for UI
+        GlobalDataStore.instance.dashUI.BeginCooldown(
+            GlobalDataStore.instance.statModule.GetDashCooldownTime()
+        );
+    }
+
+
+
+
+    public void CreateGhostMesh()
+    {
+        // create a ghost mesh by instantiating a sphere
+
+        // set the position to the player's position
+
+        Debug.Log("Ghost");
+    }
+
 
 
 
     // ROTATION HANDLING -----------------------------------------------------
     private void RotateTowards(Vector3 targetDirection)
     {
-        // if (targetDirection == Vector3.zero)
-        //     return;
-
-        // // Calculate the target rotation
-        // Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-
-        // // Smoothly interpolate between current and target rotation
-        // Quaternion smoothedRotation = Quaternion.Slerp(
-        //     transform.rotation,             // Current rotation
-        //     targetRotation,          // Target rotation
-        //     rotateSpeed * Time.deltaTime // Interpolation factor
-        // );
-
-
-        // // Apply the smooth rotation to the Rigidbody
-        // transform.rotation = smoothedRotation; 
-
         Quaternion _lookRotation = 
 		    Quaternion.LookRotation((targetDirection - transform.position).normalized);
 
@@ -129,12 +181,13 @@ public class PlayerController : MonoBehaviour
         // find out if its rotating left or right based on the sign
         rotateDirection = Vector3.Dot(targetDirection, transform.right);
 
+        // Debug.Log("Rotation: " + rotateDirection);
+        // Debug.Log("Ship Rotation: " + transform.rotation);
+        // Debug.Log("Look Rotation: " + _lookRotation);  
+
         //over time
         transform.rotation = 
             Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * rotateSpeed);
-        
-        //instant
-        // transform.rotation = _lookRotation;
     }
 
 

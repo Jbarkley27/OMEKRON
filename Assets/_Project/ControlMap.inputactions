@@ -170,10 +170,21 @@
                 {
                     "name": "",
                     "id": "2cf5fd72-39d9-41ec-9009-c8866cfd8e76",
-                    "path": "",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KB",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "965fb689-0e6b-4e7b-aef0-7f87b8415448",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -214,10 +225,21 @@
                 {
                     "name": "",
                     "id": "7b3c014d-75a1-4184-8c89-872621ccfa60",
-                    "path": "",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KB",
+                    "action": "Blaster",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "befeeda6-ffec-4a58-af69-3f65e4ecc14a",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "Blaster",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -225,10 +247,21 @@
                 {
                     "name": "",
                     "id": "0ba0dd32-5fe0-4ac3-8f4b-f391d02a9fbd",
-                    "path": "",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KB",
+                    "action": "OpenMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4960d5d2-344a-407d-8608-59aee05e5dee",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "OpenMenu",
                     "isComposite": false,
                     "isPartOfComposite": false

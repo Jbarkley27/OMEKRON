@@ -9,7 +9,15 @@ public class StatModule : MonoBehaviour
     public int currentHealth;
     public int skillCooldown = 5;
     public int speed = 5;
-    public int dashCooldown = 5;
+    public float dashCooldown = 5;
     public int maxShieldCharges = 5;
     public int currentShieldCharges;
+
+    
+
+    // Getters
+    public float GetDashCooldownTime()
+    {
+        return dashCooldown;
+    }
 }

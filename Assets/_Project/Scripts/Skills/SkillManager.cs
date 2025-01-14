@@ -29,4 +29,22 @@ public class SkillManager : MonoBehaviour
         return !SkillInUse;
     }
     
+    public void UseSkill(int index)
+    {
+        if (SkillInUse)
+            return;
+
+        switch (index)
+        {
+            case 1:
+                skill_1.UseSkill();
+                break;
+            case 2:
+                skill_2.UseSkill();
+                break;
+            case 3:
+                skill_3.UseSkill();
+                break;
+        }
+    }
 }

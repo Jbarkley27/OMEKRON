@@ -14,12 +14,12 @@ public class PlayerProjectile : MonoBehaviour
     {
         this.damage = damage;
         this.range = range;
-        this.direction = GlobalDataStore.instance.player.transform.position - direction;
+        this.direction = direction;
         this.force = force;
 
         gameObject.transform.rotation = GlobalDataStore.instance.player.transform.rotation;
 
-        gameObject.GetComponent<Rigidbody>().velocity = gameObject.transform.forward * force;
+        gameObject.GetComponent<Rigidbody>().velocity = this.direction * force;
 
         isSetup = true;
 

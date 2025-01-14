@@ -18,6 +18,16 @@ public class GlobalDataStore : MonoBehaviour
 
     [Header("Player Modules")]
     public StatModule statModule;
+    public PlayerController playerController;
+    public KitModule kitModule;
+    public BlasterModule blasterModule;
+
+
+    [Header("UI")]
+    public DashUI dashUI;
+    public KitUI kitUI;
+    public BlasterUI blasterUI;
+    
 
     
 

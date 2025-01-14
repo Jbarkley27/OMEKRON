@@ -62,6 +62,7 @@ public class InputManager : MonoBehaviour
         if (context.performed)
         {
             Debug.Log("Dash");
+            GlobalDataStore.instance.playerController.Dash();
         }
     }
 
@@ -113,7 +114,7 @@ public class InputManager : MonoBehaviour
     {
         if (context.performed)
         {
-            Debug.Log("Open Menu");
+            GlobalDataStore.instance.kitUI.TurnOnKitUI();
         }
     }
 
