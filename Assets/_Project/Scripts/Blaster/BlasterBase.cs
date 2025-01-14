@@ -39,7 +39,6 @@ public class BlasterBase : MonoBehaviour
 
     public void Update()
     {
-        Debug.Log("Can Cooldown: " + CanCooldown());
         if (CanCooldown())
         {
             cooldownCoroutine = StartCoroutine(Cooldown());
