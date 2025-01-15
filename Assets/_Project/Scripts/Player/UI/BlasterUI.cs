@@ -9,12 +9,6 @@ public class BlasterUI: MonoBehaviour
     public Slider ammoSlider;
 
 
-
-    private void Start() 
-    {
-        
-    }
-
     public void Update()
     {
         ammoText.text = GlobalDataStore.instance.blasterModule.equippedBlaster.currentAmmo.ToString();

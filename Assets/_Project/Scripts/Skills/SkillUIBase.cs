@@ -8,15 +8,33 @@ public class SkillUIBase : MonoBehaviour
     public Image skillIcon;
     public CanvasGroup canvasGroup;
     public bool isCooldownSkill = true;
+    public SkillBase skill;
+    public bool isEmpty = false;
+    public bool isDashSkill = false;
 
-
-    private void Start() {
+    private void Start() 
+    {
         canvasGroup.alpha = 1;
     }
 
-    public void SetupSkillUI(Sprite icon)
+    private void Update() {
+
+        if(isDashSkill) return;
+        isEmpty = skill == null;
+
+        if(isEmpty)
+        {
+            skillIcon.sprite = null;
+            canvasGroup.alpha = .2f;
+        }
+    }
+
+    public virtual void SetupSkillUI(SkillBase assignedSkill)
     {
-        skillIcon.sprite = icon;
+        if(isDashSkill) return;
+        skill = assignedSkill;
+        skillIcon.sprite = assignedSkill.Icon;
+        skill.skillUI = this;
     }
 
     public void UseSkill()

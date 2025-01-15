@@ -1320,6 +1320,8 @@ GameObject:
   - component: {fileID: 218247340}
   - component: {fileID: 218247339}
   - component: {fileID: 218247338}
+  - component: {fileID: 218247342}
+  - component: {fileID: 218247341}
   m_Layer: 0
   m_Name: Skill 1
   m_TagString: Untagged
@@ -1412,6 +1414,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218247336}
   m_CullTransparentMesh: 1
+--- !u!225 &218247341
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218247336}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &218247342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218247336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e51611b31834ecf965d8d307222b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownSlider: {fileID: 1396907722}
+  skillIcon: {fileID: 1855380121}
+  canvasGroup: {fileID: 218247341}
+  isCooldownSkill: 1
+  skill: {fileID: 0}
+  isEmpty: 0
+  isDashSkill: 0
 --- !u!1 &249381196
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,6 +2724,9 @@ MonoBehaviour:
   skillIcon: {fileID: 77459245}
   canvasGroup: {fileID: 425810291}
   isCooldownSkill: 1
+  skill: {fileID: 0}
+  isEmpty: 0
+  isDashSkill: 1
 --- !u!225 &425810291
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3491,7 +3527,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 32e6257af24aa4fe0ae65b34069cb60b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a725c167c9de34688a6ce70d80f52341, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5451,7 +5487,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 32e6257af24aa4fe0ae65b34069cb60b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df09c4b6d44a14accb4f717c91d657bc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7028,8 +7064,10 @@ GameObject:
   - component: {fileID: 1246256970}
   - component: {fileID: 1246256969}
   - component: {fileID: 1246256968}
+  - component: {fileID: 1246256972}
+  - component: {fileID: 1246256971}
   m_Layer: 0
-  m_Name: Skill 1 (1)
+  m_Name: Skill 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7120,6 +7158,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246256966}
   m_CullTransparentMesh: 1
+--- !u!225 &1246256971
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246256966}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1246256972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246256966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e51611b31834ecf965d8d307222b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownSlider: {fileID: 468196693}
+  skillIcon: {fileID: 777888841}
+  canvasGroup: {fileID: 1246256971}
+  isCooldownSkill: 1
+  skill: {fileID: 0}
+  isEmpty: 0
+  isDashSkill: 0
 --- !u!1 &1252365199
 GameObject:
   m_ObjectHideFlags: 0
@@ -7503,7 +7572,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 32e6257af24aa4fe0ae65b34069cb60b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 55a275cd589ae499eb3c6ba8cc038162, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8688,8 +8757,10 @@ GameObject:
   - component: {fileID: 1590417474}
   - component: {fileID: 1590417473}
   - component: {fileID: 1590417472}
+  - component: {fileID: 1590417475}
+  - component: {fileID: 1590417476}
   m_Layer: 0
-  m_Name: Skill 1 (2)
+  m_Name: Skill 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8780,6 +8851,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590417470}
   m_CullTransparentMesh: 1
+--- !u!114 &1590417475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590417470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e51611b31834ecf965d8d307222b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownSlider: {fileID: 1786187307}
+  skillIcon: {fileID: 1007351367}
+  canvasGroup: {fileID: 1590417476}
+  isCooldownSkill: 1
+  skill: {fileID: 0}
+  isEmpty: 0
+  isDashSkill: 0
+--- !u!225 &1590417476
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590417470}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1601045508
 GameObject:
   m_ObjectHideFlags: 0
@@ -9905,6 +10007,8 @@ GameObject:
   - component: {fileID: 1802427822}
   - component: {fileID: 1802427824}
   - component: {fileID: 1802427825}
+  - component: {fileID: 1802427827}
+  - component: {fileID: 1802427826}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -9966,7 +10070,7 @@ MonoBehaviour:
   blasterModule: {fileID: 249381203}
   dashUI: {fileID: 425810290}
   kitUI: {fileID: 1542549646}
-  blasterUI: {fileID: 0}
+  blasterUI: {fileID: 1082600296}
 --- !u!114 &1802427825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9983,6 +10087,48 @@ MonoBehaviour:
   amplitudeGain: 0
   frequemcyGain: 0
   shakeDuration: 0
+--- !u!114 &1802427826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802427821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cac103c851fb443d8efd56fbd184f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballPrefab: {fileID: 4183675447703338143, guid: b61f53a00f6c7419ba5ce4a318a15d17,
+    type: 3}
+  blackholePrefab: {fileID: 1090411433726935051, guid: 40b4d371f6e37486d9b1f3cde25f0a7f,
+    type: 3}
+  arcStrikePrefab: {fileID: 5707464186935934159, guid: d3f608981d52e424e8784bfbe2a95673,
+    type: 3}
+  quakePrefab: {fileID: 7485787185631119262, guid: ff94d3439b8c648bfbbbf79ed58aea64,
+    type: 3}
+--- !u!114 &1802427827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802427821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02452e7b36f794e4fb98619d3bc3f146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkillInUse: 0
+  skillUI_1: {fileID: 218247342}
+  skillUI_2: {fileID: 1246256972}
+  skillUI_3: {fileID: 1590417475}
+  skill_1: {fileID: 0}
+  skill_2: {fileID: 0}
+  skill_3: {fileID: 0}
+  startingSkill_1: 0
+  startingSkill_2: 1
+  startingSkill_3: 3
 --- !u!1 &1807298575
 GameObject:
   m_ObjectHideFlags: 0
@@ -10880,7 +11026,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 32e6257af24aa4fe0ae65b34069cb60b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed98e0a2878584582befe67ba469302e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11095,7 +11241,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 32e6257af24aa4fe0ae65b34069cb60b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5bc16b765e4444f59ada8d763d4a95a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

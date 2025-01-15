@@ -192,6 +192,17 @@
                 {
                     "name": "",
                     "id": "85aeef3b-2380-4b2d-869f-aa992195140c",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KB",
+                    "action": "Skill 1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dd7fc251-6929-4e60-813d-1328a143af67",
                     "path": "",
                     "interactions": "",
                     "processors": "",
@@ -203,10 +214,10 @@
                 {
                     "name": "",
                     "id": "b9169476-e343-4f41-b961-5b120c04b564",
-                    "path": "",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KB",
                     "action": "Skill 2",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -214,10 +225,10 @@
                 {
                     "name": "",
                     "id": "7bf7bf51-3a14-4db3-8d84-969d61cfce6b",
-                    "path": "",
+                    "path": "<Keyboard>/v",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KB",
                     "action": "Skill 3",
                     "isComposite": false,
                     "isPartOfComposite": false

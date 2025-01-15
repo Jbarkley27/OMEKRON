@@ -1,7 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-public class Skill: MonoBehaviour
+/**
+ * REMINDER
+ * Skills need to call the correct functions to represent the skill in the UI
+ */
+public class SkillBase: MonoBehaviour
 {
     public string Name;
     public string Description;
@@ -9,21 +13,22 @@ public class Skill: MonoBehaviour
     public float CooldownTime;
     public SkillManager.SkillType skillType;
     public bool CanUse;
-
-
+    public SkillDatabase.SkillID skillID;
+    public SkillUIBase skillUI;
 
 
     public virtual void UseSkill()
     {
         if (!CanUse) return;
         SkillManager.instance.SkillInUse = true;
+        StartCoroutine(ExecuteSkill());
     }
 
     public virtual IEnumerator ExecuteSkill()
     {
         // Play error sound
         // Do something with the UI
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.1f);
     }
 
     public virtual void StartCooldown()
