@@ -1,28 +1,71 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
-public class DashUI: SkillUIBase
+public class DashUI: MonoBehaviour
 {
+
+    public Slider cooldownSlider;
+    public Image skillIcon;
+    public CanvasGroup canvasGroup;
+
     private void Start() 
     {
-        isDashSkill = true;
+      SetSkillUsageToReady();
     }
 
 
-    public override void SetSkillUsageToReady()
+    public void SetSkillUsageToReady()
     {
         canvasGroup.alpha = 1;
         // play sound
+        cooldownSlider.maxValue = GlobalDataStore.instance.statModule.dashCooldown;
+        cooldownSlider.value = GlobalDataStore.instance.statModule.dashCooldown;
 
         GlobalDataStore.instance.playerController.isDashing = false;
         Debug.Log("Dash Ready");
     }
 
 
-    public override void SetupSkillUI(SkillBase assignedSkill)
+    public void UseSkill()
     {
-        base.SetupSkillUI(assignedSkill);
-        GlobalDataStore.instance.playerController.isDashing = false;
-        cooldownSlider.maxValue = GlobalDataStore.instance.playerController.dashCooldown;
-        cooldownSlider.value = GlobalDataStore.instance.playerController.dashCooldown;
+        if (cooldownSlider)
+        {
+            cooldownSlider.value = 0;
+            canvasGroup.alpha = 0.4f;
+        }
+        // play sound here
+    }
+
+
+    public void BeginCooldown(float cooldown)
+    {
+        StartCoroutine(Cooldown(cooldown));
+    }
+
+    private IEnumerator Cooldown(float cooldownTime = -1)
+    {
+        // this is in the cases where we need the player to force a quicker cooldown
+        if(cooldownTime == -1)
+        {
+            cooldownTime = 1f;
+        }
+
+        float elapsedTime = 0f;
+        float startValue = cooldownSlider.value; // Current value of the slider
+        float targetValue = cooldownSlider.maxValue; // Max value of the slider
+
+        while (elapsedTime < cooldownTime)
+        {
+            elapsedTime += Time.deltaTime; // Increment elapsed time
+            cooldownSlider.value = Mathf.Lerp(startValue, targetValue, elapsedTime / cooldownTime); // Smoothly interpolate the slider value
+            yield return null; // Wait until the next frame
+        }
+
+        // Ensure the slider is completely filled at the end
+        cooldownSlider.value = targetValue;
+
+        // Set the skill usage to ready
+        SetSkillUsageToReady();
     }
 }

@@ -19,7 +19,6 @@ public class SkillUIBase : MonoBehaviour
 
     private void Update() {
 
-        if(isDashSkill) return;
         isEmpty = skill == null;
 
         if(isEmpty)

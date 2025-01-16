@@ -12,15 +12,15 @@ public class PlayerProjectile : MonoBehaviour
 
     public void SetupProjectile(Vector3 direction, float force, int damage, float range, bool simpleMode = false)
     {
-        if(simpleMode)
-        {
-            gameObject.GetComponent<Rigidbody>().velocity = direction * force;
-            this.damage = damage;
-            this.range = range;
-            isSetup = true;
-            Destroy(gameObject, range);
-            return;
-        }
+        // if(simpleMode)
+        // {
+        //     gameObject.GetComponent<Rigidbody>().velocity = transform.forward * force;
+        //     this.damage = damage;
+        //     this.range = range;
+        //     isSetup = true;
+        //     Destroy(gameObject, range);
+        //     return;
+        // }
 
         // this is to add more complexity to the projectile if needed
         this.damage = damage;

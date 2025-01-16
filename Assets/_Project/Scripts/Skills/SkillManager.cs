@@ -51,15 +51,7 @@ public class SkillManager : MonoBehaviour
 
     public void Start()
     {
-        // instantiate each skill
-        // skill_1 = SkillDatabase.instance.GetSkillFromID(startingSkill_1);
-        // skill_2 = SkillDatabase.instance.GetSkillFromID(startingSkill_2);
-        // skill_3 = SkillDatabase.instance.GetSkillFromID(startingSkill_3);
 
-        // // set the skill UI
-        // skillUI_1.SetupSkillUI(skill_1);
-        // skillUI_2.SetupSkillUI(skill_2);
-        // skillUI_3.SetupSkillUI(skill_3);
     }
 
     public bool CanUseSkill()
@@ -74,8 +66,8 @@ public class SkillManager : MonoBehaviour
     
     public void UseSkill(int index)
     {
-        if (SkillInUse)
-            return;
+        // if (SkillInUse)
+        //     return;
 
 
         // make sure the skill is not null

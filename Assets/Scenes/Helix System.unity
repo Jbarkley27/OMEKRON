@@ -2722,9 +2722,6 @@ MonoBehaviour:
   cooldownSlider: {fileID: 1518147216}
   skillIcon: {fileID: 77459245}
   canvasGroup: {fileID: 425810291}
-  skill: {fileID: 0}
-  isEmpty: 0
-  isDashSkill: 1
 --- !u!225 &425810291
 CanvasGroup:
   m_ObjectHideFlags: 0
