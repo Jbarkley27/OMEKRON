@@ -36,10 +36,8 @@ public class SkillManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-    }
 
-    public void Start()
-    {
+
         // instantiate each skill
         skill_1 = SkillDatabase.instance.GetSkillFromID(startingSkill_1);
         skill_2 = SkillDatabase.instance.GetSkillFromID(startingSkill_2);
@@ -49,6 +47,19 @@ public class SkillManager : MonoBehaviour
         skillUI_1.SetupSkillUI(skill_1);
         skillUI_2.SetupSkillUI(skill_2);
         skillUI_3.SetupSkillUI(skill_3);
+    }
+
+    public void Start()
+    {
+        // instantiate each skill
+        // skill_1 = SkillDatabase.instance.GetSkillFromID(startingSkill_1);
+        // skill_2 = SkillDatabase.instance.GetSkillFromID(startingSkill_2);
+        // skill_3 = SkillDatabase.instance.GetSkillFromID(startingSkill_3);
+
+        // // set the skill UI
+        // skillUI_1.SetupSkillUI(skill_1);
+        // skillUI_2.SetupSkillUI(skill_2);
+        // skillUI_3.SetupSkillUI(skill_3);
     }
 
     public bool CanUseSkill()

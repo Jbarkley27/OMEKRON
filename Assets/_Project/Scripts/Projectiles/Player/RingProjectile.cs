@@ -6,7 +6,7 @@ public class RingProjectile: MonoBehaviour
     public int damage;
     public float lifetime;
     public bool isSetup = false;
-    public float spinRate;
+    public float growSpeed = 1f;
 
 
     public void SetupProjectile(int damage, float lifetime)
@@ -16,12 +16,14 @@ public class RingProjectile: MonoBehaviour
 
         isSetup = true;
 
-        Invoke("DestroyProjectile", lifetime);
+
         gameObject.transform.DOScale(new Vector3(
-            gameObject.transform.localScale.x * 4,
-            gameObject.transform.localScale.y,
-            gameObject.transform.localScale.z * 4
-        ), lifetime).SetEase(Ease.Linear);
+            gameObject.transform.localScale.x * 20f,
+            gameObject.transform.localScale.y * 1.2f,
+            gameObject.transform.localScale.z * 20f
+        ), lifetime)
+        .SetEase(Ease.Linear)
+        .OnComplete(() => DestroyProjectile());
     }
 
     public void DestroyProjectile()
@@ -31,8 +33,7 @@ public class RingProjectile: MonoBehaviour
     }
 
     private void Update() {
-        if (gameObject == null || !isSetup) return;
-        
+        if (!isSetup) return;
     }
     
 

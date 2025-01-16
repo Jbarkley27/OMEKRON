@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Arc Strike
   Description: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: b2aa58642de9a43ddb899f11c32a0376, type: 3}
   CooldownTime: 4
   skillType: 2
   CanUse: 0
@@ -55,4 +55,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 8235768749953426174, guid: 2a8c2f9c8d6124413ada80d9f83def65,
     type: 3}
   damage: 5
-  lifetime: 10
+  range: 5
+  numProjectiles: 6
+  angle: 60
+  force: 50

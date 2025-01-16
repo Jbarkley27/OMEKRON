@@ -21,8 +21,11 @@ public class Blackhole_Skill : SkillBase
 
         projectile.GetComponent<DOTProjectile>().SetupProjectile(damage, lifetime, dotRate);
 
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(1);
 
-        StartCooldown();
+        if (skillUI)
+        {
+            skillUI.BeginCooldown(CooldownTime);
+        }
     }
 }

@@ -1441,7 +1441,6 @@ MonoBehaviour:
   cooldownSlider: {fileID: 1396907722}
   skillIcon: {fileID: 1855380121}
   canvasGroup: {fileID: 218247341}
-  isCooldownSkill: 1
   skill: {fileID: 0}
   isEmpty: 0
   isDashSkill: 0
@@ -2723,7 +2722,6 @@ MonoBehaviour:
   cooldownSlider: {fileID: 1518147216}
   skillIcon: {fileID: 77459245}
   canvasGroup: {fileID: 425810291}
-  isCooldownSkill: 1
   skill: {fileID: 0}
   isEmpty: 0
   isDashSkill: 1
@@ -7185,7 +7183,6 @@ MonoBehaviour:
   cooldownSlider: {fileID: 468196693}
   skillIcon: {fileID: 777888841}
   canvasGroup: {fileID: 1246256971}
-  isCooldownSkill: 1
   skill: {fileID: 0}
   isEmpty: 0
   isDashSkill: 0
@@ -8866,7 +8863,6 @@ MonoBehaviour:
   cooldownSlider: {fileID: 1786187307}
   skillIcon: {fileID: 1007351367}
   canvasGroup: {fileID: 1590417476}
-  isCooldownSkill: 1
   skill: {fileID: 0}
   isEmpty: 0
   isDashSkill: 0
@@ -10009,6 +10005,7 @@ GameObject:
   - component: {fileID: 1802427825}
   - component: {fileID: 1802427827}
   - component: {fileID: 1802427826}
+  - component: {fileID: 1802427828}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -10128,7 +10125,25 @@ MonoBehaviour:
   skill_3: {fileID: 0}
   startingSkill_1: 0
   startingSkill_2: 1
-  startingSkill_3: 3
+  startingSkill_3: 2
+--- !u!114 &1802427828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802427821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a6e4e654e19b41b88656b2aa64e9d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 8235768749953426174, guid: a5e1ceca6815c45e7979240f0dfc41d9,
+    type: 3}
+  projectileCount: 10
+  spreadAngle: 360
+  range: 10
+  force: 50
 --- !u!1 &1807298575
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ public class Quake_Skill : SkillBase
     {
         skillUI.UseSkill();
         SpawnQuake();
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(1);
         StartCooldown();
     }
 
@@ -21,5 +21,10 @@ public class Quake_Skill : SkillBase
     {
         GameObject quake = Instantiate(quakePrefab, GlobalDataStore.instance.player.transform.position, Quaternion.identity);
         quake.GetComponent<RingProjectile>().SetupProjectile(damage, lifetime);
+
+        if (skillUI)
+        {
+            skillUI.BeginCooldown(CooldownTime);
+        }
     }
 }

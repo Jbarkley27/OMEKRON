@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7855078842554752962}
   - component: {fileID: 7672204196345601977}
   - component: {fileID: 4381291782169372285}
-  - component: {fileID: 1043092872132645905}
   - component: {fileID: 1757103622626089424}
+  - component: {fileID: 6927209701517350926}
   m_Layer: 0
   m_Name: Quake_Projectile
   m_TagString: Untagged
@@ -109,23 +109,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &1043092872132645905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8838938594410428709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a147af8a9d794968b0fd991d523e23d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  range: 0
-  direction: {x: 0, y: 0, z: 0}
-  force: 0
-  isSetup: 0
 --- !u!54 &1757103622626089424
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -153,3 +136,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 4
   m_CollisionDetection: 2
+--- !u!114 &6927209701517350926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8838938594410428709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee8667e52d17451492ab723a1205c7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  lifetime: 0
+  isSetup: 0
+  spinRate: 5

@@ -1,20 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class SkillUIBase : MonoBehaviour 
 {
     public Slider cooldownSlider;
     public Image skillIcon;
     public CanvasGroup canvasGroup;
-    public bool isCooldownSkill = true;
     public SkillBase skill;
     public bool isEmpty = false;
     public bool isDashSkill = false;
 
     private void Start() 
     {
-        canvasGroup.alpha = 1;
+        
     }
 
     private void Update() {
@@ -34,6 +34,9 @@ public class SkillUIBase : MonoBehaviour
         if(isDashSkill) return;
         skill = assignedSkill;
         skillIcon.sprite = assignedSkill.Icon;
+        cooldownSlider.maxValue = assignedSkill.CooldownTime;
+        cooldownSlider.value = assignedSkill.CooldownTime;
+        canvasGroup.alpha = 1;
         skill.skillUI = this;
     }
 
@@ -52,8 +55,14 @@ public class SkillUIBase : MonoBehaviour
         StartCoroutine(Cooldown(cooldown));
     }
 
-    private IEnumerator Cooldown(float cooldownTime)
+    private IEnumerator Cooldown(float cooldownTime = -1)
     {
+        // this is in the cases where we need the player to force a quicker cooldown
+        if(cooldownTime == -1)
+        {
+            cooldownTime = 1f;
+        }
+
         float elapsedTime = 0f;
         float startValue = cooldownSlider.value; // Current value of the slider
         float targetValue = cooldownSlider.maxValue; // Max value of the slider
@@ -74,7 +83,11 @@ public class SkillUIBase : MonoBehaviour
 
     public virtual void SetSkillUsageToReady()
     {
-        
+        if(skill != null)
+        {
+            canvasGroup.alpha = 1;
+            skill.EndCooldown();
+        }
     }
 
 }

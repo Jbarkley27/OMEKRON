@@ -86,6 +86,7 @@ public class InputManager : MonoBehaviour
         if (context.performed)
         {
             Debug.Log("Skill 1");
+            SkillManager.instance.UseSkill(1);
         }
     }
 
@@ -96,6 +97,7 @@ public class InputManager : MonoBehaviour
         if (context.performed)
         {
             Debug.Log("Skill 2");
+            SkillManager.instance.UseSkill(2);
         }
     }
 
@@ -106,6 +108,7 @@ public class InputManager : MonoBehaviour
         if (context.performed)
         {
             Debug.Log("Skill 3");
+            SkillManager.instance.UseSkill(3);
         }
     }
 

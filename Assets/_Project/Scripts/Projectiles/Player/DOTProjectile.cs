@@ -33,7 +33,7 @@ public class DOTProjectile : MonoBehaviour
     }
 
     private void Update() {
-        if (gameObject == null || !isSetup) return;
+        if (!isSetup) return;
         transform.Rotate(Vector3.up, spinRate * Time.deltaTime);
     }
     

@@ -5,13 +5,33 @@ public class ArcStrike_Skill: SkillBase
 {
     public GameObject projectilePrefab;
     public int damage;
-    public float lifetime;
+    public int range;
+    public int numProjectiles;
+    public float angle;
+    public float force;
+
     
     public override IEnumerator ExecuteSkill()
     {
         skillUI.UseSkill();
-        ArcProjectileSystem.instance.SpawnProjectiles();
-        yield return new WaitForSeconds(.2f);
-        StartCooldown();
+        
+        ArcProjectileSystem.instance.SpawnProjectiles(
+            new ArcProjectileSystem.ProjectileData(
+                projectilePrefab, 
+                numProjectiles, 
+                angle,
+                force,
+                range,
+                damage,
+                true
+            )
+        );
+
+        yield return new WaitForSeconds(1);
+
+        if (skillUI)
+        {
+            skillUI.BeginCooldown(CooldownTime);
+        }
     }
 }

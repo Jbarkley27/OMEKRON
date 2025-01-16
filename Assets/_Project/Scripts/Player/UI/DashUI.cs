@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class DashUI: SkillUIBase
 {
+    private void Start() 
+    {
+        isDashSkill = true;
+    }
+
+
     public override void SetSkillUsageToReady()
     {
         canvasGroup.alpha = 1;
@@ -16,5 +22,7 @@ public class DashUI: SkillUIBase
     {
         base.SetupSkillUI(assignedSkill);
         GlobalDataStore.instance.playerController.isDashing = false;
+        cooldownSlider.maxValue = GlobalDataStore.instance.playerController.dashCooldown;
+        cooldownSlider.value = GlobalDataStore.instance.playerController.dashCooldown;
     }
 }

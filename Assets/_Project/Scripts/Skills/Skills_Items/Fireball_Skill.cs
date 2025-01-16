@@ -15,6 +15,8 @@ public class Fireball_Skill : SkillBase
 
     public override IEnumerator ExecuteSkill()
     {
+        Debug.Log("Fireball skill used");
+
         // show in UI skill was used
         skillUI.UseSkill();
         GameObject projectile = Instantiate(
@@ -24,8 +26,11 @@ public class Fireball_Skill : SkillBase
 
         projectile.GetComponent<PlayerProjectile>().SetupProjectile(GlobalDataStore.instance.player.transform.forward, projectileSpeed, damage, range);
 
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(1);
 
-        StartCooldown();
+        if (skillUI)
+        {
+            skillUI.BeginCooldown(CooldownTime);
+        }
     }
 }

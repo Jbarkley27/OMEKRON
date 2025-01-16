@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8495822353538075286}
   - component: {fileID: 4823996775181936684}
   - component: {fileID: 7654195101816029007}
-  - component: {fileID: 7303114776256507069}
+  - component: {fileID: 8557549002389745389}
   m_Layer: 0
   m_Name: BlackHole
   m_TagString: Untagged
@@ -134,7 +134,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 4
   m_CollisionDetection: 2
---- !u!114 &7303114776256507069
+--- !u!114 &8557549002389745389
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,11 +143,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8235768749953426174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a147af8a9d794968b0fd991d523e23d, type: 3}
+  m_Script: {fileID: 11500000, guid: d822e8c875efd40a9aa786496a3587c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  range: 0
-  direction: {x: 0, y: 0, z: 0}
-  force: 0
+  lifetime: 0
+  dotRate: 0
   isSetup: 0
+  spinRate: 10
+  enemiesHit: []

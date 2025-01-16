@@ -16,8 +16,13 @@ public class SkillBase: MonoBehaviour
     public SkillDatabase.SkillID skillID;
     public SkillUIBase skillUI;
 
+    private void Start()
+    {
+        CanUse = true;
+    }
 
-    public virtual void UseSkill()
+
+    public void UseSkill()
     {
         if (!CanUse) return;
         SkillManager.instance.SkillInUse = true;
@@ -28,6 +33,7 @@ public class SkillBase: MonoBehaviour
     {
         // Play error sound
         // Do something with the UI
+        Debug.LogError("Skill not implemented");
         yield return new WaitForSeconds(.1f);
     }
 
@@ -37,11 +43,9 @@ public class SkillBase: MonoBehaviour
         Invoke("EndCooldown", CooldownTime);
     }
 
-    public virtual void EndCooldown()
+    public void EndCooldown()
     {
         CanUse = true;
+        SkillManager.instance.SkillInUse = false;
     }
-
-
-
 }
