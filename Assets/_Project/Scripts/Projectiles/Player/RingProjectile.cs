@@ -36,6 +36,15 @@ public class RingProjectile: MonoBehaviour
         if (collider.gameObject.tag == "enemy-visual")
         {
             Debug.Log("Hit enemy");
+
+            // check if the enemy has a health node
+            if (collider.gameObject.transform.parent.GetComponent<HealthNode>() == null)
+            {
+                Debug.LogError("Enemy does not have a health node");
+                return;
+            }
+            
+            collider.gameObject.transform.parent.GetComponent<HealthNode>().TakeDamage(damage);
         }
     }
 

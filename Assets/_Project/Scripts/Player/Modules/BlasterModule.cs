@@ -34,7 +34,6 @@ public class BlasterModule : MonoBehaviour {
     {
         blaster.SetIsFiring(true);
 
-        Debug.Log("Firing Blaster");
         for (int i = 0; i < blaster.burstAmount; i++)
         {
             for (int j = 0; j < blaster.burstsPerShot; j++)

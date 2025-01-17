@@ -12,6 +12,9 @@ public class HealthNode : MonoBehaviour
     public int currentShield;
 
 
+    public Flashable flashable;
+
+
 
     private void Start() 
     {
@@ -21,6 +24,9 @@ public class HealthNode : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        // make the enemy flash white
+        flashable.Flash(MaterialFlashSystem.instance.hitFlashMaterial_Base, .1f);
+
         // take from shield first
         if (currentShield > 0)
         {

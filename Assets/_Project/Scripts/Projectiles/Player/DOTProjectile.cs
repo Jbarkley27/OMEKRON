@@ -55,7 +55,7 @@ public class DOTProjectile : MonoBehaviour
     {
         if (collider.gameObject.tag == "enemy-visual")
         {
-            HealthNode enemy = collider.gameObject.GetComponent<HealthNode>();
+            HealthNode enemy = collider.gameObject.transform.parent.GetComponent<HealthNode>();
             if (enemy != null && !enemiesHit.Contains(enemy))
             {
                 enemiesHit.Add(enemy);
@@ -68,7 +68,7 @@ public class DOTProjectile : MonoBehaviour
     {
         if (collider.gameObject.tag == "enemy-visual")
         {
-            HealthNode enemy = collider.gameObject.GetComponent<HealthNode>();
+            HealthNode enemy = collider.gameObject.transform.parent.GetComponent<HealthNode>();
             if (enemy != null && enemiesHit.Contains(enemy))
             {
                 enemiesHit.Remove(enemy);
