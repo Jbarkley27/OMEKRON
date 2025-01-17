@@ -10955,6 +10955,7 @@ GameObject:
   - component: {fileID: 1802427826}
   - component: {fileID: 1802427828}
   - component: {fileID: 1802427829}
+  - component: {fileID: 1802427830}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -11107,6 +11108,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitFlashMaterial_Base: {fileID: 2100000, guid: 5bf1826fbc7764137930568970c8f627,
     type: 2}
+--- !u!114 &1802427830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802427821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47a0781587a6049b9a907aa76bd0f178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberPrefab: {fileID: 5937911644892300800, guid: d58bf69941cf4445cb0945e95c049298,
+    type: 3}
 --- !u!1 &1807298575
 GameObject:
   m_ObjectHideFlags: 0

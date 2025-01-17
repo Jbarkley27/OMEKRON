@@ -27,6 +27,9 @@ public class HealthNode : MonoBehaviour
         // make the enemy flash white
         flashable.Flash(MaterialFlashSystem.instance.hitFlashMaterial_Base, .1f);
 
+        // show the damage number popup
+        PopUpTextSystem.instance.CreateDamagePopup(transform, damage.ToString());
+
         // take from shield first
         if (currentShield > 0)
         {
