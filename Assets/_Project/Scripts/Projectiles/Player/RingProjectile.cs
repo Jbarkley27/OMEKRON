@@ -6,13 +6,13 @@ public class RingProjectile: MonoBehaviour
     public int damage;
     public float lifetime;
     public bool isSetup = false;
-    public float growSpeed = 1f;
 
 
     public void SetupProjectile(int damage, float lifetime)
     {
         this.damage = damage;
         this.lifetime = lifetime;
+
 
         isSetup = true;
 
@@ -23,20 +23,14 @@ public class RingProjectile: MonoBehaviour
             gameObject.transform.localScale.z * 20f
         ), lifetime)
         .SetEase(Ease.Linear)
-        .OnComplete(() => DestroyProjectile());
-    }
-
-    public void DestroyProjectile()
-    {
-        // do some stuff
-        Destroy(gameObject);
-    }
-
-    private void Update() {
-        if (!isSetup) return;
+        .OnComplete(() => Destroy(gameObject));
     }
     
 
+
+
+
+    // COLLISION EVENTS ----------------------------------------------
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "enemy-visual")

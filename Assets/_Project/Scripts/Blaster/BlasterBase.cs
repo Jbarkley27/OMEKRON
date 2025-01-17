@@ -25,6 +25,7 @@ public class BlasterBase : MonoBehaviour
     public float rechargeRate;
 
 
+
     [Header("State")]
     public bool isFiring = false;
     public bool isRecharging = false;

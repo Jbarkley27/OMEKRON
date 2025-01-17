@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour
@@ -10,19 +8,10 @@ public class PlayerProjectile : MonoBehaviour
     public float force;
     public bool isSetup = false;
 
+
     public void SetupProjectile(Vector3 direction, float force, int damage, float range, bool simpleMode = false)
     {
-        // if(simpleMode)
-        // {
-        //     gameObject.GetComponent<Rigidbody>().velocity = transform.forward * force;
-        //     this.damage = damage;
-        //     this.range = range;
-        //     isSetup = true;
-        //     Destroy(gameObject, range);
-        //     return;
-        // }
-
-        // this is to add more complexity to the projectile if needed
+        
         this.damage = damage;
         this.range = range;
         this.direction = direction;
@@ -35,10 +24,6 @@ public class PlayerProjectile : MonoBehaviour
         Destroy(gameObject, range);
     }
 
-    private void Update() {
-        if (gameObject == null || !isSetup) return;
-    }
-    
 
 
     private void OnTriggerEnter(Collider collider)

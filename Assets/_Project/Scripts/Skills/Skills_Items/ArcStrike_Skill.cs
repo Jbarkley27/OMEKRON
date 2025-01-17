@@ -16,15 +16,15 @@ public class ArcStrike_Skill: SkillBase
         skillUI.UseSkill();
         
         ArcProjectileSystem.instance.SpawnProjectiles(
-            // new ArcProjectileSystem.ProjectileData(
-            //     projectilePrefab, 
-            //     numProjectiles, 
-            //     angle,
-            //     force,
-            //     range,
-            //     damage,
-            //     true
-            // )
+            new ArcProjectileSystem.ProjectileData(
+                projectilePrefab, 
+                numProjectiles, 
+                angle,
+                force,
+                range,
+                damage,
+                true
+            )
         );
 
         yield return new WaitForSeconds(.1f);

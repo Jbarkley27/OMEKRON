@@ -14,6 +14,10 @@ public class Blackhole_Skill : SkillBase
     {
         // show in UI skill was used
         skillUI.UseSkill();
+
+
+
+        // Custom Skill Execution
         GameObject projectile = Instantiate(
             projectilePrefab, 
             AimManager.instance.GetWorldCursorPosition(),
@@ -23,6 +27,11 @@ public class Blackhole_Skill : SkillBase
 
         yield return new WaitForSeconds(1);
 
+
+
+
+
+        // Begin the cooldown process
         if (skillUI)
         {
             skillUI.BeginCooldown(CooldownTime);

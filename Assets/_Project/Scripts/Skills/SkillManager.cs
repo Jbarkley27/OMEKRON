@@ -49,14 +49,9 @@ public class SkillManager : MonoBehaviour
         skillUI_3.SetupSkillUI(skill_3);
     }
 
-    public void Start()
+    public bool SkillBeingUsed()
     {
-
-    }
-
-    public bool CanUseSkill()
-    {
-        return !SkillInUse;
+        return SkillInUse;
     }
 
     public void SkillComplete()
@@ -66,9 +61,6 @@ public class SkillManager : MonoBehaviour
     
     public void UseSkill(int index)
     {
-        // if (SkillInUse)
-        //     return;
-
 
         // make sure the skill is not null
         if (index == 1 && skill_1 == null) return;

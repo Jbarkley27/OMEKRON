@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using Unity.VisualScripting;
+
 
 public class SkillUIBase : MonoBehaviour 
 {
@@ -9,7 +9,6 @@ public class SkillUIBase : MonoBehaviour
     public Image skillIcon;
     public CanvasGroup canvasGroup;
     public SkillBase skill;
-    public bool isEmpty = false;
     public bool isDashSkill = false;
 
     private void Start() 
@@ -17,17 +16,17 @@ public class SkillUIBase : MonoBehaviour
         
     }
 
-    private void Update() {
-
-        isEmpty = skill == null;
-
-        if(isEmpty)
+    private void Update() 
+    {
+        if(skill == null)
         {
             skillIcon.sprite = null;
             canvasGroup.alpha = .2f;
         }
     }
 
+
+    // INITIALLY SETS UP THE UI
     public virtual void SetupSkillUI(SkillBase assignedSkill)
     {
         if(isDashSkill) return;
@@ -39,6 +38,11 @@ public class SkillUIBase : MonoBehaviour
         skill.skillUI = this;
     }
 
+
+
+
+
+    // THIS IS FOR OTHER CLASSES TO CALL AS SOON AS THEY USE THE SKILL TO VISUALLY SHOW THE COOLDOWN
     public void UseSkill()
     {
         if (cooldownSlider)
@@ -49,11 +53,23 @@ public class SkillUIBase : MonoBehaviour
         // play sound here
     }
 
+
+
+
+
+
+
+
+    // COOLDOWN --------------------------------------------------------------------
     public void BeginCooldown(float cooldown)
     {
         StartCoroutine(Cooldown(cooldown));
     }
 
+
+
+
+    // This Coroutine does the actual cooldown
     private IEnumerator Cooldown(float cooldownTime = -1)
     {
         // this is in the cases where we need the player to force a quicker cooldown
@@ -77,16 +93,8 @@ public class SkillUIBase : MonoBehaviour
         cooldownSlider.value = targetValue;
 
         // Set the skill usage to ready
-        SetSkillUsageToReady();
-    }
-
-    public virtual void SetSkillUsageToReady()
-    {
-        if(skill != null)
-        {
-            canvasGroup.alpha = 1;
-            skill.EndCooldown();
-        }
+        canvasGroup.alpha = 1;
+        skill.EndCooldown();
     }
 
 }

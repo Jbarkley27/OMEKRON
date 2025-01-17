@@ -23,10 +23,10 @@ public class AimManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start()
-    {
-        
-    }
+
+
+
+
 
     void Update()
     {

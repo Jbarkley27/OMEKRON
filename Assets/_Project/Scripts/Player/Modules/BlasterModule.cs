@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BlasterModule : MonoBehaviour {
 
-    public float projectileMaxRange;
+
     public BlasterBase equippedBlaster;
 
     private void Start() 
@@ -11,10 +11,7 @@ public class BlasterModule : MonoBehaviour {
         equippedBlaster = Instantiate(GlobalDataStore.instance.kitModule.equippedBlaster, gameObject.transform);
     }
 
-    public void SetEquippedBlaster(BlasterBase blaster)
-    {
-        equippedBlaster = blaster;
-    }
+
 
     private void Update() 
     {
@@ -56,6 +53,7 @@ public class BlasterModule : MonoBehaviour {
 
             yield return new WaitForSeconds(blaster.fireRate);
         }
+        
         blaster.SetIsFiring(false);
     }
 

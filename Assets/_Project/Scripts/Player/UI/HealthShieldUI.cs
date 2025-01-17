@@ -14,13 +14,8 @@ public class HealthShieldUI : MonoBehaviour
     public Slider shieldSlider;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    
     void Update()
     {
         healthSlider.maxValue = GlobalDataStore.instance.statModule.maxHealth;

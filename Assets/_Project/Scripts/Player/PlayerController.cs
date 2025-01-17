@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-// using Cinemachine;
+
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement")]
     private Vector3 cameraRelativeMovement = new Vector3(0, 0, 0);
-    public float MovementForce = 10;
+    public float MovementForceX = 3000f;
+    public float MovementForceZ = 4000f;
     private Vector2 _input = new Vector2(0, 0);
     private Vector3 _currentMovement = new Vector3(0, 0, 0);
 
@@ -68,15 +69,15 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
 
         // split the movement into two parts - the forward movement and the right movement
-        // this is so we can add more force to the y axis
+        // this is so we can add more force to the y axis, since the game is isometric y movement looks shorter
 
         // X movement
         Vector3 xMovement = new Vector3(cameraRelativeMovement.x, 0, 0);
-        rb.AddForce(MovementForce * Time.deltaTime * xMovement);
+        rb.AddForce(MovementForceX * Time.deltaTime * xMovement * GlobalDataStore.instance.statModule.GetSpeed());
 
         // Z movement
         Vector3 zMovement = new Vector3(0, 0, cameraRelativeMovement.z);
-        rb.AddForce(MovementForce * Time.deltaTime * zMovement);
+        rb.AddForce(MovementForceZ * Time.deltaTime * zMovement * GlobalDataStore.instance.statModule.GetSpeed());
     }
 
 

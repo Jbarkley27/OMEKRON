@@ -81,7 +81,6 @@ public class InputManager : MonoBehaviour
 
     public void Skill1(InputAction.CallbackContext context)
     {
-        if(!SkillManager.instance.CanUseSkill()) return;
 
         if (context.performed)
         {
@@ -92,8 +91,6 @@ public class InputManager : MonoBehaviour
 
     public void Skill2(InputAction.CallbackContext context)
     {
-        if(!SkillManager.instance.CanUseSkill()) return;
-
         if (context.performed)
         {
             Debug.Log("Skill 2");
@@ -103,8 +100,6 @@ public class InputManager : MonoBehaviour
 
     public void Skill3(InputAction.CallbackContext context)
     {
-        if(!SkillManager.instance.CanUseSkill()) return;
-
         if (context.performed)
         {
             Debug.Log("Skill 3");

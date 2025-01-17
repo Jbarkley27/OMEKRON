@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,9 +7,7 @@ public class DOTProjectile : MonoBehaviour
     public float lifetime;
     public float dotRate;
     public bool isSetup = false;
-
     public float spinRate;
-
     public List<HealthNode> enemiesHit = new List<HealthNode>();
 
 
@@ -28,7 +25,6 @@ public class DOTProjectile : MonoBehaviour
 
     public void DestroyProjectile()
     {
-        // do some stuff
         Destroy(gameObject);
     }
 
@@ -36,8 +32,25 @@ public class DOTProjectile : MonoBehaviour
         if (!isSetup) return;
         transform.Rotate(Vector3.up, spinRate * Time.deltaTime);
     }
+
+
+    public void ApplyDamage()
+    {
+        foreach (HealthNode enemy in enemiesHit)
+        {
+            if (enemy == null) continue;
+            enemy.TakeDamage(damage);
+        }
+    }
     
 
+
+
+
+
+
+
+    // COLLISION EVENTS
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "enemy-visual")
@@ -64,14 +77,5 @@ public class DOTProjectile : MonoBehaviour
     }
 
 
-    public void ApplyDamage()
-    {
-        foreach (HealthNode enemy in enemiesHit)
-        {
-            if (enemy == null) continue;
-            enemy.TakeDamage(damage);
-        }
-    }
-
-
+    
 }

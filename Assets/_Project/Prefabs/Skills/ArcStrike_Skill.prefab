@@ -56,6 +56,6 @@ MonoBehaviour:
     type: 3}
   damage: 5
   range: 5
-  numProjectiles: 6
-  angle: 60
+  numProjectiles: 5
+  angle: 90
   force: 50

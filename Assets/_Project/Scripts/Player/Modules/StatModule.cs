@@ -14,7 +14,7 @@ public class StatModule : MonoBehaviour
     public int skillCooldown = 5;
 
     // Speed
-    public int speed = 5;
+    public int speed = 1;
 
     // Dash
     public float dashCooldown = 5;
@@ -35,6 +35,13 @@ public class StatModule : MonoBehaviour
     public float GetDashCooldownTime()
     {
         return dashCooldown;
+    }
+
+
+    // Speed -----------------------------------------------------------------------------
+    public int GetSpeed()
+    {
+        return speed;
     }
 
 

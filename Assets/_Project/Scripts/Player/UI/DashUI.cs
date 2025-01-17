@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
+
+// WE NEEDED TO CREATE A NEW CLASS FOR THE DASH SKILL BECAUSE IT HAS A DIFFERENT UI FUNCTIONALITY FROM THE OTHER SKILLS
 public class DashUI: MonoBehaviour
 {
 
@@ -18,7 +20,8 @@ public class DashUI: MonoBehaviour
     public void SetSkillUsageToReady()
     {
         canvasGroup.alpha = 1;
-        // play sound
+        
+        
         cooldownSlider.maxValue = GlobalDataStore.instance.statModule.dashCooldown;
         cooldownSlider.value = GlobalDataStore.instance.statModule.dashCooldown;
 
