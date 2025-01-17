@@ -48,11 +48,11 @@ MonoBehaviour:
   fireRate: 0.2
   burstAmount: 1
   burstsPerShot: 1
-  spread: 0.2
+  spread: 0.1
   projectileSpeed: 100
   burstsPerShotFireRate: 0
   range: 5
-  damage: 10
+  damage: 1
   projectile: {fileID: 8235768749953426174, guid: 8a808aac076af41ccbedf05aab5343a2,
     type: 3}
   maxAmmo: 1000

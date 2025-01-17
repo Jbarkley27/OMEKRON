@@ -60,7 +60,7 @@ public class BlasterModule : MonoBehaviour {
     public Vector3 ApplySpread(Vector3 direction, float spread)
     {
         Vector2 accuracy = new Vector3(Random.Range(-spread, spread), Random.Range(-spread, spread));
-        Vector3 directionWithSpread = direction + new Vector3(accuracy.x, 0, 0);
+        Vector3 directionWithSpread = direction + new Vector3(accuracy.y, 0, 0);
 
         return directionWithSpread;
     }

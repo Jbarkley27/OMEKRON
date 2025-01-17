@@ -3193,7 +3193,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 5.83}
-  m_SizeDelta: {x: 8, y: 2.5}
+  m_SizeDelta: {x: 8, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &487993465
 MonoBehaviour:
@@ -6355,6 +6355,7 @@ GameObject:
   - component: {fileID: 948916017}
   - component: {fileID: 948916019}
   - component: {fileID: 948916018}
+  - component: {fileID: 948916020}
   m_Layer: 0
   m_Name: Nucleotide_Enemy
   m_TagString: Untagged
@@ -6434,9 +6435,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   currentHealth: 100
+  healthSlider: {fileID: 487993465}
   maxShield: 0
   currentShield: 0
+  shieldSlider: {fileID: 2134562328}
   flashable: {fileID: 948916018}
+  enemyDNABase: {fileID: 948916020}
+--- !u!114 &948916020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948916015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31006fcb2b2314c348e4dc050da97443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyName: Nucleotide
+  description: 
+  grade: 2
+  maxHealth: 0
+  currentHealth: 0
+  maxShield: 0
+  currentShield: 0
+  damage: 0
+  attackSpeed: 0
+  damageMultipliers: 0200000004000000060000000a000000
+  healthMultipliers: 140000001e000000280000003c000000
+  shieldMultipliers: 000000000a0000000a00000014000000
+  speedMultipliers: 01000000010000000200000002000000
+  attackSpeedMultipliers: 02000000020000000300000004000000
+  IsDead: 0
 --- !u!1 &956738013
 GameObject:
   m_ObjectHideFlags: 0
@@ -6798,13 +6829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3acc40465b0e249ada5ea11ddb4bbcc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDifficulty: 0
-  spawnPointAddition: 0
-  enemyHealthAddition: 1
-  spawnPointAdditionSilver: 10
-  enemyHealthAdditionSilver: 1.2
-  spawnPointAdditionGold: 20
-  enemyHealthAdditionGold: 1.6
+  currentLevel: 0
 --- !u!1 &1005294446
 GameObject:
   m_ObjectHideFlags: 0
@@ -12498,7 +12523,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 5.83}
-  m_SizeDelta: {x: 10, y: 5}
+  m_SizeDelta: {x: 9.5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2134562328
 MonoBehaviour:

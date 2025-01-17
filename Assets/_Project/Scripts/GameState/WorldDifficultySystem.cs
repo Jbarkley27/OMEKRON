@@ -7,28 +7,7 @@ public class WorldDifficultySystem : MonoBehaviour
 
 
     [Header("World Difficulty")]
-    public Difficulty currentDifficulty = Difficulty.BRONZE;
-    public enum Difficulty { BRONZE, SILVER, GOLD };
-    
-    
-
-    [Header("Bronze Difficulty")]
-    public int spawnPointAddition = 0;
-    public float enemyHealthAddition = 1f;
-
-
-
-    [Header("Silver Difficulty")]
-    public int spawnPointAdditionSilver = 10;
-    public float enemyHealthAdditionSilver = 1.2f;
-
-
-
-    [Header("Gold Difficulty")]
-    public int spawnPointAdditionGold = 20;
-    public float enemyHealthAdditionGold = 1.6f;
-
-
+    public int currentLevel;
 
     private void Awake()
     {
