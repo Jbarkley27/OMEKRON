@@ -30,7 +30,6 @@ public class PlayerProjectile : MonoBehaviour
     {
         if (collider.gameObject.tag == "enemy-visual")
         {
-            Debug.Log("Hit enemy ");
 
             // check if the enemy has a health node
             if (collider.gameObject.transform.parent.GetComponent<HealthNode>() == null)

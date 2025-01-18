@@ -20,6 +20,7 @@ public class EnemyDNABase : MonoBehaviour
     public int currentShield;
     public int damage;
     public int attackSpeed;
+    public int power;
 
 
     // These will be used to determine the enemy's stats based on their grade, which will determined by the current game level
@@ -39,14 +40,6 @@ public class EnemyDNABase : MonoBehaviour
         SetStats();
         currentHealth = maxHealth;
         currentShield = maxShield;
-    }
-
-    private void Update() {
-        // if(currentHealth <= 0 && !IsDead)
-        // {
-        //     Debug.Log("Enemy is dead");
-        //     Die();
-        // }
     }
 
     public bool HasShield()
@@ -104,6 +97,8 @@ public class EnemyDNABase : MonoBehaviour
         // Wait for a few seconds
         // Destroy the game object
         yield return new WaitForSeconds(.1f);
+        SpawnManager.instance.enemies.Remove(this);
         Destroy(gameObject);
     }
+    
 }

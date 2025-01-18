@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - enemy-visual
+  - spawn-point
   layers:
   - Default
   - TransparentFX
