@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.AI;
 
 
 public class EnemyDNABase : MonoBehaviour 
@@ -22,6 +23,24 @@ public class EnemyDNABase : MonoBehaviour
     public int attackSpeed;
     public int power;
 
+    [Header("Agent Settings")]
+    public NavMeshAgent agent;
+    public float moveSpeedMax;
+    public float moveSpeedMin;
+
+    public float attackRangeMax;
+    public float attackRangeMin;
+
+    public float accelerationMax;
+    public float accelerationMin;
+
+    public float sizeMax;
+    public float sizeMin;
+
+    public float rotationSpeedMax;
+    public float rotationSpeedMin;
+    public float currentRotationSpeed;
+
 
     // These will be used to determine the enemy's stats based on their grade, which will determined by the current game level
     [Header("Enemy Multipliers")]
@@ -38,8 +57,6 @@ public class EnemyDNABase : MonoBehaviour
 
     private void Awake() {
         SetStats();
-        currentHealth = maxHealth;
-        currentShield = maxShield;
     }
 
     public bool HasShield()
@@ -77,6 +94,12 @@ public class EnemyDNABase : MonoBehaviour
                 attackSpeed = attackSpeedMultipliers[3];
                 break;
         }
+
+        currentHealth = maxHealth;
+        currentShield = maxShield;
+
+        // Set the rotation
+        currentRotationSpeed = Random.Range(rotationSpeedMin, rotationSpeedMax);
     }
 
     public void Die()
