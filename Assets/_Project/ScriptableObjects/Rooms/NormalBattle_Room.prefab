@@ -45,10 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomType: 0
-  waves:
-  - {fileID: 11400000, guid: de3817fec2e634cb494908d432e6f6a8, type: 2}
-  - {fileID: 11400000, guid: 278042755da014fa8a89adc1f40a6d85, type: 2}
-  - {fileID: 11400000, guid: de3817fec2e634cb494908d432e6f6a8, type: 2}
-  - {fileID: 11400000, guid: 278042755da014fa8a89adc1f40a6d85, type: 2}
-  - {fileID: 11400000, guid: 278042755da014fa8a89adc1f40a6d85, type: 2}
+  enemiesThisRoom: {fileID: 11400000, guid: de3817fec2e634cb494908d432e6f6a8, type: 2}
   currentWave: 0

@@ -10,7 +10,7 @@ public class InputManager : MonoBehaviour
     public enum ControllerType { XBOX, PSN, KB};
     public ControllerType currentDevice;
     public bool TouchedControls;
-    public bool FiringBlaster;
+    // public bool FiringBlaster;
     
 
 
@@ -37,7 +37,7 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         DetectDeviceType();
-        UseBlaster();
+        // UseBlaster();
     }
 
     public void WorldCursor(InputAction.CallbackContext context)
@@ -49,62 +49,62 @@ public class InputManager : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            MoveVector = context.ReadValue<Vector2>().normalized;
-            TouchedControls = true;
-        }
+        // if (context.performed)
+        // {
+        //     MoveVector = context.ReadValue<Vector2>().normalized;
+        //     TouchedControls = true;
+        // }
     }
 
 
     public void Dash(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            Debug.Log("Dash");
-            GlobalDataStore.instance.playerController.Dash();
-        }
+        // if (context.performed)
+        // {
+        //     Debug.Log("Dash");
+        //     GlobalDataStore.instance.playerController.Dash();
+        // }
     }
 
 
     public void UseBlaster()
     {
-        if (playerInput.actions["Blaster"].IsPressed())
-        {
-            FiringBlaster = true;
-        }
-        else if (playerInput.actions["Blaster"].WasReleasedThisFrame())
-        {
-            FiringBlaster = false;
-        }
+        // if (playerInput.actions["Blaster"].IsPressed())
+        // {
+        //     FiringBlaster = true;
+        // }
+        // else if (playerInput.actions["Blaster"].WasReleasedThisFrame())
+        // {
+        //     FiringBlaster = false;
+        // }
     }
 
     public void Skill1(InputAction.CallbackContext context)
     {
 
-        if (context.performed)
-        {
-            Debug.Log("Skill 1");
-            SkillManager.instance.UseSkill(1);
-        }
+        // if (context.performed)
+        // {
+        //     Debug.Log("Skill 1");
+        //     SkillManager.instance.UseSkill(1);
+        // }
     }
 
     public void Skill2(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            Debug.Log("Skill 2");
-            SkillManager.instance.UseSkill(2);
-        }
+        // if (context.performed)
+        // {
+        //     Debug.Log("Skill 2");
+        //     SkillManager.instance.UseSkill(2);
+        // }
     }
 
     public void Skill3(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            Debug.Log("Skill 3");
-            SkillManager.instance.UseSkill(3);
-        }
+        // if (context.performed)
+        // {
+        //     Debug.Log("Skill 3");
+        //     SkillManager.instance.UseSkill(3);
+        // }
     }
 
 

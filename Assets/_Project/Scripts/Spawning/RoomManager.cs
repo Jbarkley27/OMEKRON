@@ -173,7 +173,6 @@ public class RoomManager : MonoBehaviour
             return;
         }
 
-
         CurrentRoomComplete();
 
         Debug.Log("Activating next room in radius: " + currentRadius.ToString());

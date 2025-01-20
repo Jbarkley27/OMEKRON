@@ -4,7 +4,6 @@ using System.Collections;
 
 public class SpawnManager : MonoBehaviour 
 {
-    public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
     public float minSpawnDelayTime = .1f;
     public float maxSpawnDelayTime = 1f;
     public static SpawnManager instance;
@@ -29,14 +28,6 @@ public class SpawnManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-
-        // find all the spawn points with the tag "spawn-point"
-        GameObject[] spawnPointObjects = GameObject.FindGameObjectsWithTag("spawn-point");
-        foreach (GameObject spawnPointObject in spawnPointObjects)
-        {
-            SpawnPoint spawnPoint = spawnPointObject.GetComponent<SpawnPoint>();
-            spawnPoints.Add(spawnPoint);
-        }
     }
 
     public float GetSpawnDelayTime()
@@ -54,7 +45,7 @@ public class SpawnManager : MonoBehaviour
 
         isSpawning = true;
 
-        yield return new WaitForSeconds(wave.timeToThisWave);
+        yield return new WaitForSeconds(.1f);
 
         foreach(EnemyID enemyID in wave.enemies)
         {
@@ -67,30 +58,23 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnNextEnemyFromWave(EnemyID enemyID)
     {
-        ShuffleSpawnPoints();
-
-        SpawnPoint randomSpawnPoint = null;
-
-        foreach (SpawnPoint spawnPoint in spawnPoints)
-        {
-            if(!spawnPoint.isOccupied)
-            {
-                randomSpawnPoint = spawnPoint;
-                break;
-            }
-        }
-
+        EnemyFormationPosition randomSpawnPoint = EnemyFormation.instance.GetNextAvailablePosition();
         if (randomSpawnPoint == null)
         {
-            Debug.LogError("No available spawn points to spawn enemy.");
+            Debug.LogError("No available spawn points");
             return;
         }
 
+        // now that we know we have a spawn point, spawn the enemy and set point to occupied
+        randomSpawnPoint.SetOccupied(true);
+
+
         Debug.Log("Spawning enemy: " + enemyID);
         GameObject enemyPrefab = EnemyLibrary.instance.GetEnemyPrefabFromID(enemyID);
-        GameObject enemy = Instantiate(enemyPrefab, randomSpawnPoint.transform.position, Quaternion.identity);
-
+        GameObject enemy = Instantiate(enemyPrefab, randomSpawnPoint.spawnPosition, Quaternion.identity);
         EnemyDNABase enemyDNA = enemy.GetComponent<EnemyDNABase>();
+        
+        enemyDNA.spawnNode.NavigateEnemyToFinalSpawnPosition(randomSpawnPoint.finalPosition);
         enemies.Add(enemyDNA);
     }
 
@@ -99,24 +83,4 @@ public class SpawnManager : MonoBehaviour
         enemies.Remove(enemy);
     }
 
-    public void ShuffleSpawnPoints()
-    {
-        for (int i = 0; i < spawnPoints.Count; i++)
-        {
-            SpawnPoint temp = spawnPoints[i];
-            int randomIndex = Random.Range(i, spawnPoints.Count);
-            spawnPoints[i] = spawnPoints[randomIndex];
-            spawnPoints[randomIndex] = temp;
-        }
-    }
-
-    public int GetTotalCurrentPower()
-    {
-        int totalPower = 0;
-        foreach (EnemyDNABase enemy in enemies)
-        {
-            totalPower += enemy.power;
-        }
-        return totalPower;
-    }
 }

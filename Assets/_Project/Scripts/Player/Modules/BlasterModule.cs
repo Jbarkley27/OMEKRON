@@ -15,17 +15,17 @@ public class BlasterModule : MonoBehaviour {
 
     private void Update() 
     {
-        if(InputManager.instance.FiringBlaster)
-        {
-            if (equippedBlaster.currentAmmo <= equippedBlaster.burstAmount * equippedBlaster.burstsPerShot
-                || equippedBlaster.isFiring)
-            {
-                return;
-            }
+        // if(InputManager.instance.FiringBlaster)
+        // {
+        //     if (equippedBlaster.currentAmmo <= equippedBlaster.burstAmount * equippedBlaster.burstsPerShot
+        //         || equippedBlaster.isFiring)
+        //     {
+        //         return;
+        //     }
 
 
-            StartCoroutine(ShootProjectileHelper(equippedBlaster, GlobalDataStore.instance.projectileSource, GlobalDataStore.instance.player.transform.forward));
-        }
+        //     StartCoroutine(ShootProjectileHelper(equippedBlaster, GlobalDataStore.instance.projectileSource, GlobalDataStore.instance.player.transform.forward));
+        // }
     }
 
 

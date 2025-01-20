@@ -41,6 +41,9 @@ public class EnemyDNABase : MonoBehaviour
     public float rotationSpeedMin;
     public float currentRotationSpeed;
 
+    [Header("Nodes")]
+    public SpawnNode spawnNode;
+
 
     // These will be used to determine the enemy's stats based on their grade, which will determined by the current game level
     [Header("Enemy Multipliers")]
@@ -57,6 +60,7 @@ public class EnemyDNABase : MonoBehaviour
 
     private void Awake() {
         SetStats();
+        spawnNode = GetComponent<SpawnNode>();
     }
 
     public bool HasShield()
